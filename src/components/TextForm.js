@@ -74,6 +74,8 @@ function TextForm() {
         <button className="btn btn-danger my-3 mx-1" onClick={handleClearClick}>
           Clear
         </button>
+        <h1 className="my-3">Preview</h1>
+        <p>{text}</p>
       </div>
     </div>
   );
