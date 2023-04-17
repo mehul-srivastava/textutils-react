@@ -18,6 +18,12 @@ function TextForm() {
     setText("");
   };
 
+  const handleSpeechClick = () => {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  };
+
   const handleOnChange = (e) => {
     setText(e.target.value);
 
@@ -58,6 +64,12 @@ function TextForm() {
           onClick={handleLowercaseClick}
         >
           Convert To Lowercase
+        </button>
+        <button
+          className="btn btn-success my-3 mx-1"
+          onClick={handleSpeechClick}
+        >
+          Convert To Speech
         </button>
         <button className="btn btn-danger my-3 mx-1" onClick={handleClearClick}>
           Clear
