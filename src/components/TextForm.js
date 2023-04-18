@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TextForm() {
+function TextForm(props) {
   const [text, setText] = useState("");
   const [minsToRead, setMinsToRead] = useState("0 Second");
 
@@ -16,12 +16,20 @@ function TextForm() {
 
   const handleClearClick = () => {
     setText("");
+    setMinsToRead("0 Second");
   };
 
   const handleSpeechClick = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
     window.speechSynthesis.speak(msg);
+  };
+
+  const handleCopyClick = () => {
+    let text = document.getElementById("textBox");
+    text.select();
+    document.execCommand("copy");
+    alert("Text Copied!");
   };
 
   const handleOnChange = (e) => {
@@ -38,19 +46,24 @@ function TextForm() {
   };
 
   return (
-    <div className="container my-3">
-      <h1>Text To Analyze:</h1>
+    <div className="container my-3 p-4">
+      <h1>
+        <b>Text To Analyze:</b>
+      </h1>
       <div className="form-group">
         <textarea
-          className="form-control"
+          className={`form-control bg-${
+            props.mode == "dark" ? "dark" : "light"
+          } text-${props.mode == "dark" ? "light" : "dark"}`}
           rows="8"
+          id="textBox"
           onChange={handleOnChange}
           placeholder="Enter text here..."
           value={text}
         ></textarea>
         <label htmlFor="">
-          ({text.split(" ").length} Words, {text.length} Characters,{" "}
-          {minsToRead} Read)
+          ({text.length > 0 ? text.split(" ").length : "0"} Words, {text.length}{" "}
+          Characters, {minsToRead} Read)
         </label>
         <br />
         <button
@@ -71,11 +84,18 @@ function TextForm() {
         >
           Convert To Speech
         </button>
+        <button className="btn btn-info my-3 mx-1" onClick={handleCopyClick}>
+          Copy Text
+        </button>
         <button className="btn btn-danger my-3 mx-1" onClick={handleClearClick}>
           Clear
         </button>
-        <h1 className="my-3">Preview</h1>
-        <p>{text}</p>
+        <h1 className="mt-5">Preview</h1>
+        <p>
+          {text.length > 0
+            ? text
+            : "Enter text in the text box above to preview it here"}
+        </p>
       </div>
     </div>
   );
