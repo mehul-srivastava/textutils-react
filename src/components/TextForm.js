@@ -7,16 +7,19 @@ function TextForm(props) {
   const handleUppercaseClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.toggleAlert("success", "Text converted to upper case!");
   };
 
   const handleLowercaseClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.toggleAlert("success", "Text converted to lower case!");
   };
 
   const handleClearClick = () => {
     setText("");
     setMinsToRead("0 Second");
+    props.toggleAlert("success", "Text has been cleared!");
   };
 
   const handleSpeechClick = () => {
@@ -29,7 +32,7 @@ function TextForm(props) {
     let text = document.getElementById("textBox");
     text.select();
     document.execCommand("copy");
-    alert("Text Copied!");
+    props.toggleAlert("success", "Text copied to clipboard!");
   };
 
   const handleOnChange = (e) => {
@@ -45,6 +48,8 @@ function TextForm(props) {
     }
   };
 
+  //why this is running undefined infinitely in console? props.toggleAlert("success", "hemlo");
+
   return (
     <div className="container my-3 p-4">
       <h1>
@@ -53,8 +58,8 @@ function TextForm(props) {
       <div className="form-group">
         <textarea
           className={`form-control bg-${
-            props.mode == "dark" ? "dark" : "light"
-          } text-${props.mode == "dark" ? "light" : "dark"}`}
+            props.mode === "dark" ? "dark" : "light"
+          } text-${props.mode === "dark" ? "light" : "dark"}`}
           rows="8"
           id="textBox"
           onChange={handleOnChange}
