@@ -1,8 +1,9 @@
 import { useState } from "react";
-// import About from "./components/About";
+import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -58,8 +59,15 @@ function App() {
         toggleAlert={toggleAlert}
       />
       <Alert details={alert} />
-      <TextForm mode={theme} toggleAlert={toggleAlert} />
-      {/* <About mode={theme} /> */}
+
+      {/* Routes */}
+      <Routes>
+        <Route
+          path="/"
+          element={<TextForm mode={theme} toggleAlert={toggleAlert} />}
+        />
+        <Route path="/about" element={<About mode={theme} />} />
+      </Routes>
     </>
   );
 }
