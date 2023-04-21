@@ -15,3 +15,7 @@ code {
 .btn-purple {
   background-color: var(--bs-purple);
 }
+
+.accordion-button::after {
+  filter: invert(1);
+}
