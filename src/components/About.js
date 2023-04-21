@@ -2,7 +2,7 @@ function About(props) {
   return (
     <div
       className={`container my-4 p-4 bg-${
-        props.mode == "light" ? "white" : "grey"
+        props.mode === "light" ? "white" : "grey"
       }`}
     >
       <h1>
@@ -11,14 +11,14 @@ function About(props) {
       <div className="accordion" id="accordionExample">
         <div
           className={`accordion-item bg-${
-            props.mode == "light" ? "white" : "dark"
+            props.mode === "light" ? "white" : "dark"
           }`}
         >
           <h2 className="accordion-header" id="headingOne">
             <button
               className={`accordion-button bg-${
-                props.mode == "light" ? "white" : "dark"
-              } text-${props.mode == "light" ? "dark" : "light"}`}
+                props.mode === "light" ? "white" : "dark"
+              } text-${props.mode === "light" ? "dark" : "light"}`}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
@@ -48,14 +48,14 @@ function About(props) {
         </div>
         <div
           className={`accordion-item bg-${
-            props.mode == "light" ? "white" : "dark"
+            props.mode === "light" ? "white" : "dark"
           }`}
         >
           <h2 className="accordion-header" id="headingTwo">
             <button
               className={`accordion-button collapsed bg-${
-                props.mode == "light" ? "white" : "dark"
-              } text-${props.mode == "light" ? "dark" : "light"}`}
+                props.mode === "light" ? "white" : "dark"
+              } text-${props.mode === "light" ? "dark" : "light"}`}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"
@@ -85,14 +85,14 @@ function About(props) {
         </div>
         <div
           className={`accordion-item bg-${
-            props.mode == "light" ? "white" : "dark"
+            props.mode === "light" ? "white" : "dark"
           }`}
         >
           <h2 className="accordion-header" id="headingThree">
             <button
               className={`accordion-button collapsed bg-${
-                props.mode == "light" ? "white" : "dark"
-              } text-${props.mode == "light" ? "dark" : "light"}`}
+                props.mode === "light" ? "white" : "dark"
+              } text-${props.mode === "light" ? "dark" : "light"}`}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"

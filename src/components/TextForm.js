@@ -79,35 +79,35 @@ function TextForm(props) {
         <button
           className="btn btn-primary mt-3 mx-1"
           onClick={handleUppercaseClick}
-          disabled={text.length == 0 ? true : false}
+          disabled={text.length === 0 ? true : false}
         >
           Convert To Uppercase
         </button>
         <button
           className="btn btn-warning mt-3 mx-1"
           onClick={handleLowercaseClick}
-          disabled={text.length == 0 ? true : false}
+          disabled={text.length === 0 ? true : false}
         >
           Convert To Lowercase
         </button>
         <button
           className="btn btn-success mt-3 mx-1"
           onClick={handleSpeechClick}
-          disabled={text.length == 0 ? true : false}
+          disabled={text.length === 0 ? true : false}
         >
           Convert To Speech
         </button>
         <button
           className="btn btn-info mt-3 mx-1"
           onClick={handleCopyClick}
-          disabled={text.length == 0 ? true : false}
+          disabled={text.length === 0 ? true : false}
         >
           Copy Text
         </button>
         <button
           className="btn btn-danger mt-3 mx-1"
           onClick={handleClearClick}
-          disabled={text.length == 0 ? true : false}
+          disabled={text.length === 0 ? true : false}
         >
           Clear
         </button>
