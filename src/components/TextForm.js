@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 function TextForm(props) {
   const [text, setText] = useState("");
@@ -76,41 +77,36 @@ function TextForm(props) {
           Words, {text.length} Characters, {minsToRead} Read)
         </label>
         <br />
-        <button
-          className="btn btn-primary mt-3 mx-1"
-          onClick={handleUppercaseClick}
+        <Button
+          style="primary"
+          click={handleUppercaseClick}
+          text="Convert To Uppercase"
           disabled={text.length === 0 ? true : false}
-        >
-          Convert To Uppercase
-        </button>
-        <button
-          className="btn btn-warning mt-3 mx-1"
-          onClick={handleLowercaseClick}
+        />
+        <Button
+          style="warning"
+          click={handleLowercaseClick}
+          text="Convert To Lowercase"
           disabled={text.length === 0 ? true : false}
-        >
-          Convert To Lowercase
-        </button>
-        <button
-          className="btn btn-success mt-3 mx-1"
-          onClick={handleSpeechClick}
+        />
+        <Button
+          style="success"
+          click={handleSpeechClick}
+          text="Convert To Speech"
           disabled={text.length === 0 ? true : false}
-        >
-          Convert To Speech
-        </button>
-        <button
-          className="btn btn-info mt-3 mx-1"
-          onClick={handleCopyClick}
+        />
+        <Button
+          style="info"
+          click={handleCopyClick}
+          text="Copy Text"
           disabled={text.length === 0 ? true : false}
-        >
-          Copy Text
-        </button>
-        <button
-          className="btn btn-danger mt-3 mx-1"
-          onClick={handleClearClick}
+        />
+        <Button
+          style="danger"
+          click={handleClearClick}
+          text="Clear"
           disabled={text.length === 0 ? true : false}
-        >
-          Clear
-        </button>
+        />
         <h1 className="mt-5">Preview</h1>
         <p>
           {text.length > 0
